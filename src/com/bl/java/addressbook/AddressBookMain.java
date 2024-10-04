@@ -12,15 +12,16 @@ public class AddressBookMain {
 
         boolean exit = false;
 
-        // Loop to add multiple contacts
+        // Loop to add,edit,delete and display contacts
         while(!exit){
             System.out.println("1. Add New Contact");
             System.out.println("2. Display All Contacts");
             System.out.println("3. Edit Existing Contacts");
-            System.out.println("4. Exit");
+            System.out.println("4. Delete Contact");
+            System.out.println("5. Exit");
             System.out.print("Choose an option: ");
             int choice = in.nextInt();
-            in.nextLine();
+            in.nextLine(); // Consume newline
 
             switch(choice){
                 case 1:
@@ -74,6 +75,18 @@ public class AddressBookMain {
                     break;
 
                 case 4:
+                    // Delete an existing contact
+                    System.out.println("Enter First Name of the contact to delete: ");
+                    String deleteFirstName = in.nextLine();
+
+                    System.out.println("Enter Last Name of the contact to delete: ");
+                    String deleteLastName = in.nextLine();
+
+                    // Call deleteContactByName method
+                    addressBook.deleteContactByName(deleteFirstName,deleteLastName);
+                    break;
+
+                case 5:
                     // Exit the program
                     exit = true;
                     break;
