@@ -16,7 +16,9 @@ public class AddressBookMain {
         while(!exit){
             System.out.println("1. Add New Contact");
             System.out.println("2. Display All Contacts");
-            System.out.println("3. Exit");
+            System.out.println("3. Edit Existing Contacts");
+            System.out.println("4. Exit");
+            System.out.print("Choose an option: ");
             int choice = in.nextInt();
             in.nextLine();
 
@@ -60,6 +62,18 @@ public class AddressBookMain {
                     break;
 
                 case 3:
+                    // Edit an existing contact
+                    System.out.println("Enter First Name of the contact to edit: ");
+                    String editFirstName = in.nextLine();
+
+                    System.out.println("Enter Last Name of the contact to edit: ");
+                    String editLastName = in.nextLine();
+
+                    // Call editContactByName method
+                    addressBook.editContactByName(editFirstName,editLastName);
+                    break;
+
+                case 4:
                     // Exit the program
                     exit = true;
                     break;
